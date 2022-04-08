@@ -1,7 +1,7 @@
 name: Toto en vacance
 on: 
-  push: 
-    branches:
+  pull_request:
+    branches: 
       - "dev"
 jobs: 
   Tests: 
