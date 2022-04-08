@@ -4,22 +4,11 @@ jobs:
   Tests: 
     runs-on: ubuntu-latest
     steps:
-      - name: Recup du repo 
-        uses: actions/checkout@v3
-      - name: test 1
-        run: echo 1
-      - name: test 2
-        run: echo "test 2"
-  Build: 
-    needs: [Tests]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Je Build
-        run: exit 1
-  Check: 
-    needs: [Tests, Build]
-    runs-on: ubuntu-latest
-    if: always() && (needs.Tests.result == 'failure' || needs.Build.result == 'failure')
-    steps: 
-      - name: "Mail"
-        run: echo "mail"
+      - name: Github
+        run: echo '${{ toJSON(github) }}'
+      - name: Job
+        run: echo '${{ toJSON(job) }}'
+      - name: Step
+        run: echo '${{ toJSON(steps) }}'
+      - name: Runner
+        run: echo '${{ toJSON(runner) }}'
