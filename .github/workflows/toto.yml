@@ -2,7 +2,9 @@ name: Toto en vacance
 on: 
   pull_request:
     branches: 
-      - "dev"
+      - "main"
+    types:
+      - "closed"
 jobs: 
   Tests: 
     runs-on: ubuntu-latest
