@@ -1,12 +1,15 @@
 name: Toto en vacance
 on: [push]
 jobs: 
-  MonPremierJob: 
+  Tests: 
     runs-on: ubuntu-latest
     steps:
       - name: Recup du repo 
         uses: actions/checkout@v3
-        with:
-          ref: "refs/tags/2.0.0"
       - name: affichez le contenu de mon job
         run: ls
+  Build: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Je Build
+        run: echo "Je BuilD...."
