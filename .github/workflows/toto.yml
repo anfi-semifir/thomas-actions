@@ -1,4 +1,4 @@
-name: Toto en vacance
+name: Toto
 on: 
   pull_request:
     branches: 
