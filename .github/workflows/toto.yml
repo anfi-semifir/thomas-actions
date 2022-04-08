@@ -9,6 +9,7 @@ jobs:
       - name: affichez le contenu de mon job
         run: ls
   Build: 
+    needs: [Tests]
     runs-on: ubuntu-latest
     steps:
       - name: Je Build
