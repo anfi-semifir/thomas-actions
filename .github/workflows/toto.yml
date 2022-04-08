@@ -9,14 +9,17 @@ jobs:
       - name: test 1
         run: exit 1
       - name: test 2
-        if: ${{ always() }}
         run: echo "test 2"
-      - name: Envoi mail
-        if: ${{ failure() }}
-        run: echo "Envoi d'un email si le test echoue"
-  # Build: 
-  #   needs: [Tests]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Je Build
-  #       run: echo "Je BuilD...."
+  Build: 
+    needs: [Tests]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Je Build
+        run: echo "Je BuilD...."
+  Check: 
+    needs: [Tests, Build]
+    runs-on: ubuntu-latest
+    if: always() && (needs.Tests.result == 'failure' || needs.Build.result == 'failure')
+    steps: 
+      - name: "Mail"
+        run: echo "mail"
