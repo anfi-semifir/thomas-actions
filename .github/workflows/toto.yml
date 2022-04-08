@@ -15,8 +15,9 @@ jobs:
         uses: actions-ecosystem/action-create-issue@v1
         with: 
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          title: Probleme lors du test
+          title: '${{steps.date.output.today }}'
           body: |
             ## A faire 
             Salut 
+          assignees: ${{ github.event.commits.committer.username }}
         
