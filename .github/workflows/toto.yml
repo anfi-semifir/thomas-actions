@@ -1,23 +1,12 @@
 name: Toto en vacance
-on: [push]
+on: 
+  push: 
+    branches:
+      - "dev"
 jobs: 
   Tests: 
     runs-on: ubuntu-latest
     steps:
       - name: test 1
-        run: exit 1
-  Create-Issue: 
-    needs: [Tests]
-    runs-on: ubuntu-latest
-    if: always() && (needs.Tests.result == 'failure')
-    steps:
-      - name: create issue 
-        uses: actions-ecosystem/action-create-issue@v1
-        with: 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          title: ' date du jour : ${{steps.date.outputs.today }}'
-          body: |
-            ## A faire 
-            Salut 
-          assignees: ${{ github.event.commits.committer.username }}
+        run: echo "Salut"
         
