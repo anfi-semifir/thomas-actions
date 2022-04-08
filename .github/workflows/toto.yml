@@ -1,5 +1,8 @@
 name: Toto en vacance
-on: [pull_request]
+on: 
+  pull_request:
+    branches: 
+      - "dev"
 jobs: 
   Tests: 
     runs-on: ubuntu-latest
